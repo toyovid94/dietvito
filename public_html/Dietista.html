@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>DietVito07</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body style="padding-top:70px;">
+        <header style=" top:0; margin:auto;position:fixed; width:100%;">
+            <nav style=" float:none;  display:inline-block; width:100%; text-align:center; height:70px; margin-bottom:0; border:0;float:left; margin:0;font-size:12px;color:#393b0a;background-color:#66ff99;border-radius:0; der:none">
+                <div class="container" >
+                    <ul class="nav" style= "float:left;  margin:0; width:100%; text-align:center; float:none;  display:inline-block;vertical-align: text-top;">
+                        <li style=" position:absolute; left:0">
+                            <a style="padding:0;" href="index.html">
+                                <h1 style=" font-size: 65px; color: black; "> <b>DietVito </b><img src="img/logo.png" alt="DietVito" style="width: 65px; height: 65px;"></h1>  
+                            </a>
+                        
+                        <li style="float:right!important; margin-left:5px; margin-right:-5px; position:fixed; right:0;vertical-align: text-top;">
+                            <a href="Login.html" data-toggle="collapse" style="height:70px;background-color:green;color:white;">
+                                <span style=" font-size: 24px; padding: 0;">Login</span>
+                            </a>                  
+                        </li>
+                        <!--
+                        <li class="button" ><a href="ayuda.html">Ayuda</a></li>            
+                        <li class="button"><a href="flota.html/"> Flota</a></li>
+                        <li class="button"><a href="oficinas.html/"> Oficinas</a></li>
+                        <li class="button"><a href="ofertas.html/">Ofertas</a></li> 
+                        -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div style="width:60%;height:100%;margin:auto;margin-bottom:0px;">
+            <div style="padding:120px;">
+                <div style="width:100%;margin:auto;border:solid 2px lightgreen; background-color:whitesmoke;">
+                    <div style="color:black;">
+                        <p style="text-align:right;font-size:18px;font-style:italic;font-weight:bold;padding:20px;">
+                            Hola Dietista
+                        </p>
+                        <div style="font-size:12px;text-align:center;">
+                            <div style="margin:auto; width:80%; padding-bottom:40px;padding-top:20px;">
+                                Seleccionar acción: 
+                                <select id="selectorAccion">
+                                    <option style="font-size:14px;" value="nada" onclick="mostrar()">Seleccionar acción</option>
+                                    <option style="font-size:14px;" value="regUser" onclick="mostrar()">Registrar Usuario</option>
+                                    <option style="font-size:14px;" value="regPeso" onclick="mostrar()">Registrar Peso</option>
+                                    <option style="font-size:14px;" value="consulta" onclick="mostrar()">Consultar...</option>
+                                </select>
+                                <div id="nada">
+                                    Selecciona un metodo de busqueda
+                                </div>
+                                <div id="coches">
+                                    Introducir Matrícula del coche a desear:
+                                    <input type="text" id="matricula">
+                                    <button type="button" onclick="listarreservascoche()" >Buscar</button>
+                                </div>
+                                <div id="cliente">
+                                    Introducir email de cliente:
+                                    <input type="email" id="email">
+                                    <button type="button" onclick="listarreservasusuario()" >Buscar</button>
+                                </div>
+                                <div id="consulta">
+                                    <select>
+                                        <option style="font-size:14px;" value="actividades" onclick="mostrar2()">Actividades realizadas</option>
+                                        <option style="font-size:14px;" value="evolPeso" onclick="mostrar2()">Evolucion peso</option>
+                                    </select>
+                                </div>
+                                <div style=" padding-top:20px; " id="lista">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin:auto; width:60%;">
+                            <div style="margin-left:auto;margin-right:0px;padding:40px;width:100%;text-align:right;">                                    
+                                <input type="button" value="Logout" id="logout" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

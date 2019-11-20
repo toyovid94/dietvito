@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="padding-top:70px;">
+        <header style=" top:0; margin:auto;position:fixed; width:100%;">
+            <nav style=" float:none;  display:inline-block; width:100%; text-align:center; height:70px; margin-bottom:0; border:0;float:left; margin:0;font-size:12px;color:#393b0a;background-color:#66ff99;border-radius:0; der:none">
+                <div class="container" >
+                    <ul class="nav" style= "float:left;  margin:0; width:100%; text-align:center; float:none;  display:inline-block;vertical-align: text-top;">
+                        <li style=" position:absolute; left:0">
+                            <a style="padding:0;" href="index.html">
+                                <h1 style=" font-size: 65px; color: black; "> <b>DietVito </b><img src="img/logo.png" alt="DietVito" style="width: 65px; height: 65px;"></h1>  
+                            </a>
+                        
+                        <li style="float:right!important; margin-left:5px; margin-right:-5px; position:fixed; right:0;vertical-align: text-top;">
+                            <a href="Login.html" data-toggle="collapse" style="height:70px;background-color:green;color:white;">
+                                <span style=" font-size: 24px; padding: 0;">Login</span>
+                            </a>                  
+                        </li>
+                        <!--
+                        <li class="button" ><a href="ayuda.html">Ayuda</a></li>            
+                        <li class="button"><a href="flota.html/"> Flota</a></li>
+                        <li class="button"><a href="oficinas.html/"> Oficinas</a></li>
+                        <li class="button"><a href="ofertas.html/">Ofertas</a></li> 
+                        -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div style="width:60%;height:100%;margin:auto;margin-bottom:0px;">
+            <div style="padding:120px;">
+                <div style="width:100%;margin:auto;border:solid 2px lightgreen; background-color:whitesmoke;">             
+                    <section style="text-align:right;font-size:18px;font-style:italic;font-weight:bold;padding:20px;color:yellowgreen" id="saludo">                                    
+                    </section>                    
+                    <div style="margin-top:10px;margin-bottom:10px;padding:10px;margin:auto;width:20%;">
+                        <select id="queMostrar">
+                            <option style="font-size:14px;" value="nada" onclick="mostrarRes()">Seleccionar acción</option>
+                            <option style="font-size:14px;" value="reserva" onclick="mostrarRes()">Reservar</option>
+                            <option style="font-size:14px;" value="consultar" onclick="mostrarRes()">Consultar reserva</option>
+                        </select>
+                    </div>
+                    <div id="nada" style="color:yellowgreen;display:none;font-size:12px;padding:15px;text-align:center;">
+                        Nothing to see here... ( ͡° ͜ʖ ͡°)
+                    </div>
+                    <div id="reserva" style="color:yellowgreen;display:none;">
+                        <p style="text-align:center;font-size:14px;font-weight:bold;padding-bottom:20px">
+                            Reservar Coche:                            
+                        </p>
+                        <div style="font-size:12px;text-align:center;">                            
+                            <div style="margin:auto; width:80%; padding-bottom:20px">
+                                Seleccionar Coche: 
+                                <select id="cochesdesplegable" > 
+                                    <option value="seleccion" selected="" onclick="mostrarcoches()">Seleccionar Coche</option>
+                                </select>
+                            </div>
+                            <div style="margin:auto;padding-top:40px;padding-bottom:20px;width:80%;">
+                                <div style="display:inline-block;">
+                                    Fecha Inicio:
+                                    <input type="date" name="fechaIni" id="fecha_inicio" required="">
+                                </div>
+                                <div style="display:inline-block;">
+                                    Hora:
+                                    <input type="time" name="horaIni" id="hora_inicio" required="">
+                                </div>
+                            </div>
+                            <div style="margin:auto;padding-top:20px;padding-bottom:40px;width:80%;">
+                                <div style="display:inline-block;">
+                                    Fecha Fin:
+                                    <input type="date" name="fechaFin" id="fecha_fin" required="">
+                                </div>
+                                <div style="display:inline-block;">
+                                    Hora:
+                                    <input type="time" name="horaFin" id="hora_fin" required="">
+                                </div>
+                            </div>
+                            <div style="margin:auto; width:80%; padding-bottom:40px">
+                                Lugar: 
+                                <select id="lugar" required="">
+                                    <option style="font-size:14px;" value="vitoria">Vitoria-Gasteiz</option>
+                                    <option style="font-size:14px;" value="bilbo">Bilbo</option>
+                                    <option style="font-size:14px;" value="donosti">Donosti</option>
+                                </select>
+                            </div>
+                            <div style="margin:auto; width:60%;">
+                                <div style="margin-left:auto;margin-right:0px;padding:40px;width:100%;text-align:right;">
+                                    <button type="button" onclick="reservar()" >RESERVAR</button>                                    
+                                    <input type="button" value="Logout" id="logout" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="consultar" style="color:yellowgreen;display:none;">
+                        <p style="text-align:center;font-size:14px;font-weight:bold;padding-bottom:20px">
+                            Consultar Reserva:                            
+                        </p>
+                        <div style="font-size:12px;text-align:center;">
+                            <div style="margin:auto; width:80%; padding-bottom:40px;padding-top:20px;">
+                                <div id="fechaIni">
+                                    Introducir fecha de inicio de la reserva:
+                                    <input type="date" id ="fechainicio" name="fechaIni">
+                                    <button type="button" onclick="listarreservasusuarioactual()" >Buscar</button>
+                                    <input type="button" value="Logout" id="logout" />
+                                </div>
+                                <div style=" padding-top:20px; " id="lista">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
