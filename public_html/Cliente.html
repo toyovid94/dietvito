@@ -38,76 +38,18 @@ and open the template in the editor.
                     <div style="margin-top:10px;margin-bottom:10px;padding:10px;margin:auto;width:20%;">
                         <select id="queMostrar">
                             <option style="font-size:14px;" value="nada" onclick="mostrarRes()">Seleccionar acción</option>
-                            <option style="font-size:14px;" value="reserva" onclick="mostrarRes()">Reservar</option>
-                            <option style="font-size:14px;" value="consultar" onclick="mostrarRes()">Consultar reserva</option>
+                            <option style="font-size:14px;" value="peso" onclick="mostrarRes()">Consultar peso</option>
+                            <option style="font-size:14px;" value="actividad" onclick="mostrarRes()">Registrar actividad realizada</option>
                         </select>
                     </div>
                     <div id="nada" style="color:yellowgreen;display:none;font-size:12px;padding:15px;text-align:center;">
                         Nothing to see here... ( ͡° ͜ʖ ͡°)
                     </div>
-                    <div id="reserva" style="color:yellowgreen;display:none;">
-                        <p style="text-align:center;font-size:14px;font-weight:bold;padding-bottom:20px">
-                            Reservar Coche:                            
-                        </p>
-                        <div style="font-size:12px;text-align:center;">                            
-                            <div style="margin:auto; width:80%; padding-bottom:20px">
-                                Seleccionar Coche: 
-                                <select id="cochesdesplegable" > 
-                                    <option value="seleccion" selected="" onclick="mostrarcoches()">Seleccionar Coche</option>
-                                </select>
-                            </div>
-                            <div style="margin:auto;padding-top:40px;padding-bottom:20px;width:80%;">
-                                <div style="display:inline-block;">
-                                    Fecha Inicio:
-                                    <input type="date" name="fechaIni" id="fecha_inicio" required="">
-                                </div>
-                                <div style="display:inline-block;">
-                                    Hora:
-                                    <input type="time" name="horaIni" id="hora_inicio" required="">
-                                </div>
-                            </div>
-                            <div style="margin:auto;padding-top:20px;padding-bottom:40px;width:80%;">
-                                <div style="display:inline-block;">
-                                    Fecha Fin:
-                                    <input type="date" name="fechaFin" id="fecha_fin" required="">
-                                </div>
-                                <div style="display:inline-block;">
-                                    Hora:
-                                    <input type="time" name="horaFin" id="hora_fin" required="">
-                                </div>
-                            </div>
-                            <div style="margin:auto; width:80%; padding-bottom:40px">
-                                Lugar: 
-                                <select id="lugar" required="">
-                                    <option style="font-size:14px;" value="vitoria">Vitoria-Gasteiz</option>
-                                    <option style="font-size:14px;" value="bilbo">Bilbo</option>
-                                    <option style="font-size:14px;" value="donosti">Donosti</option>
-                                </select>
-                            </div>
-                            <div style="margin:auto; width:60%;">
-                                <div style="margin-left:auto;margin-right:0px;padding:40px;width:100%;text-align:right;">
-                                    <button type="button" onclick="reservar()" >RESERVAR</button>                                    
-                                    <input type="button" value="Logout" id="logout" />
-                                </div>
-                            </div>
-                        </div>
+                    <div id="peso" style="color:yellowgreen;display:none;">
+                        
                     </div>
-                    <div id="consultar" style="color:yellowgreen;display:none;">
-                        <p style="text-align:center;font-size:14px;font-weight:bold;padding-bottom:20px">
-                            Consultar Reserva:                            
-                        </p>
-                        <div style="font-size:12px;text-align:center;">
-                            <div style="margin:auto; width:80%; padding-bottom:40px;padding-top:20px;">
-                                <div id="fechaIni">
-                                    Introducir fecha de inicio de la reserva:
-                                    <input type="date" id ="fechainicio" name="fechaIni">
-                                    <button type="button" onclick="listarreservasusuarioactual()" >Buscar</button>
-                                    <input type="button" value="Logout" id="logout" />
-                                </div>
-                                <div style=" padding-top:20px; " id="lista">
-                                </div>
-                            </div>
-                        </div>
+                    <div id="actividad" style="color:yellowgreen;display:none;">
+                        
                     </div>
                 </div>
             </div>

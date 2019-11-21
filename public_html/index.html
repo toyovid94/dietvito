@@ -10,6 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
+        <script src="js/index.js"></script>
     </head>
     <body style="padding-top:70px;">
         <header style=" top:0; margin:auto;position:fixed; width:100%;">
@@ -30,8 +31,22 @@ and open the template in the editor.
                 </div>
             </nav>
         </header>
-        <div>TODO write content</div>
+        <div style="width:60%;height:100%;margin:auto;margin-bottom:0px;">
+            <div style="padding:120px;">
+                <div style="width:100%;margin:auto;border:solid 2px lightgreen; background-color:whitesmoke; text-align:center">
+                    <div style="color:black;">
+                        <select id="consultar" onchange="mostrar()">
+                            <option style="font-size:14px;" value="nada">Seleccion de consulta</option>
+                            <option style="font-size:14px;" value="actividades">Consultar actividades</option>
+                            <option style="font-size:14px;" value="alimentos">Consultar alimentos</option>
+                        </select>
+                        <div id ="nada" style="display:none">No hay nada que ver</div>
+                        <div id ="actividades" style="display:none">Fus-ro-dah</div>
+                        <div id ="alimentos" style="display:none">Arigato Gozaimasu</div>
+                    </div> 
+                </div>
+            </div>
+        </div>
     </body>
 </html>
 
-<!--Test Git-->
