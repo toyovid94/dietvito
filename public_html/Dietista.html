@@ -10,6 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
+        <script src="js/dietista.js"></script>
     </head>
     <body style="padding-top:70px;">
         <header style=" top:0; margin:auto;position:fixed; width:100%;">
@@ -26,12 +27,6 @@ and open the template in the editor.
                                 <span style=" font-size: 24px; padding: 0;">Login</span>
                             </a>                  
                         </li>
-                        <!--
-                        <li class="button" ><a href="ayuda.html">Ayuda</a></li>            
-                        <li class="button"><a href="flota.html/"> Flota</a></li>
-                        <li class="button"><a href="oficinas.html/"> Oficinas</a></li>
-                        <li class="button"><a href="ofertas.html/">Ofertas</a></li> 
-                        -->
                     </ul>
                 </div>
             </nav>
@@ -46,30 +41,64 @@ and open the template in the editor.
                         <div style="font-size:12px;text-align:center;">
                             <div style="margin:auto; width:80%; padding-bottom:40px;padding-top:20px;">
                                 Seleccionar acción: 
-                                <select id="selectorAccion">
-                                    <option style="font-size:14px;" value="nada" onclick="mostrar()">Seleccionar acción</option>
-                                    <option style="font-size:14px;" value="regUser" onclick="mostrar()">Registrar Usuario</option>
-                                    <option style="font-size:14px;" value="regPeso" onclick="mostrar()">Registrar Peso</option>
-                                    <option style="font-size:14px;" value="consulta" onclick="mostrar()">Consultar...</option>
+                                <select id="selectorAccion" onchange="mostrar()">
+                                    <option style="font-size:14px;" value="nada">Seleccionar acción</option>
+                                    <option style="font-size:14px;" value="regUser">Registrar Usuario</option>
+                                    <option style="font-size:14px;" value="regPeso">Registrar Peso</option>
+                                    <option style="font-size:14px;" value="consulta">Consultar...</option>
                                 </select>
-                                <div id="nada">
-                                    Selecciona un metodo de busqueda
+                                <div id="nada" style="display:none;">
+                                    Selecciona una acción.
                                 </div>
-                                <div id="coches">
-                                    Introducir Matrícula del coche a desear:
-                                    <input type="text" id="matricula">
-                                    <button type="button" onclick="listarreservascoche()" >Buscar</button>
+                                <div id="regPeso" style="display:none;">
+                                    Introducir email del cliente:
+                                    <input type="email" id="clienteMail">
+                                    <br>
+                                    Introducir peso del cliente:
+                                    <input type="number" id="peso"><br>
+                                    Introducir fecha de la medición:
+                                    <input type="date" id="fechaPeso"><br><br>
+                                    <button type="button" onclick="registrarPeso()" >Registrar peso</button>
                                 </div>
-                                <div id="cliente">
-                                    Introducir email de cliente:
+                                <div id="regUser" style="display:none;">
+                                    Introducir nombre del cliente:
+                                    <input type="text" id="nombreCliente">
+                                    <br>
+                                    Introducir email del cliente:
                                     <input type="email" id="email">
-                                    <button type="button" onclick="listarreservasusuario()" >Buscar</button>
+                                    <br>
+                                    Introducir contraseña del cliente:
+                                    <input type="password" id="pwd">
+                                    <br>
+                                    Imagen:
+                                    <input type="file" accept="image/*" id="imagenCliente"><br><br>
+                                    <!-- Cambiar onclick -->
+                                    <button type="button" id="regCliente" >Registrar cliente</button>
+                                    <button type="button" id="limpiarReg">Limpiar</button>
                                 </div>
-                                <div id="consulta">
-                                    <select>
-                                        <option style="font-size:14px;" value="actividades" onclick="mostrar2()">Actividades realizadas</option>
-                                        <option style="font-size:14px;" value="evolPeso" onclick="mostrar2()">Evolucion peso</option>
-                                    </select>
+                                <div id="consulta" style="display:none;">
+                                    Introducir email del cliente: <input type="email" id="mailClienteConsulta"><br>
+                                    Consultar:
+                                    <select id="selectorConsulta" onchange="mostrar2()">
+                                        <option style="font-size:14px;" value="nada2">Seleccionar consulta</option>
+                                        <option style="font-size:14px;" value="actividades">Actividades realizadas</option>
+                                        <option style="font-size:14px;" value="evolPeso">Evolucion peso</option>
+                                    </select><br>
+                                    <div id="nada2" style="display:none;">
+                                        Seleccionar consulta.
+                                    </div>
+                                    <div id ="actividades" style="display:none;">
+                                        Desde: <input type="date" id="fechaInicioAct"><br>
+                                        Hasta: <input type="date" id="fechaFinAct"><br><br>
+                                        <button type="submit" id="consAct">Consultar Actividades</button><br><br>
+                                        Aqui van las actividades
+                                    </div>
+                                    <div id ="evolPeso" style="display:none;">
+                                        Desde: <input type="date" id="fechaInicioPeso"><br>
+                                        Hasta: <input type="date" id="fechaFinPeso"><br><br>
+                                        <button type="submit" id="consPeso">Consultar Peso</button><br><br>
+                                        Aqui va la evolucion del peso.
+                                    </div>
                                 </div>
                                 <div style=" padding-top:20px; " id="lista">
                                 </div>
