@@ -77,28 +77,33 @@ and open the template in the editor.
                                     <button type="button" id="limpiarReg">Limpiar</button>
                                 </div>
                                 <div id="consulta" style="display:none;">
-                                    Introducir email del cliente: <input type="email" id="mailClienteConsulta"><br>
                                     Consultar:
                                     <select id="selectorConsulta" onchange="mostrar2()">
                                         <option style="font-size:14px;" value="nada2">Seleccionar consulta</option>
                                         <option style="font-size:14px;" value="actividades">Actividades realizadas</option>
                                         <option style="font-size:14px;" value="evolPeso">Evolucion peso</option>
+                                        <option style="font-size:14px;" value="act">Consultar actividades</option>
+                                        <option style="font-size:14px;" value="alimentos">Consultar alimentos</option>
                                     </select><br>
                                     <div id="nada2" style="display:none;">
                                         Seleccionar consulta.
                                     </div>
                                     <div id ="actividades" style="display:none;">
+                                        Introducir email del cliente: <input type="email" id="mailClienteConsulta"><br>
                                         Desde: <input type="date" id="fechaInicioAct"><br>
                                         Hasta: <input type="date" id="fechaFinAct"><br><br>
                                         <button type="submit" id="consAct">Consultar Actividades</button><br><br>
                                         Aqui van las actividades
                                     </div>
                                     <div id ="evolPeso" style="display:none;">
+                                        Introducir email del cliente: <input type="email" id="mailClienteConsulta"><br>
                                         Desde: <input type="date" id="fechaInicioPeso"><br>
                                         Hasta: <input type="date" id="fechaFinPeso"><br><br>
                                         <button type="submit" id="consPeso">Consultar Peso</button><br><br>
                                         Aqui va la evolucion del peso.
                                     </div>
+                                    <div id ="act" style="display:none">Fus-ro-dah</div>
+                                    <div id ="alimentos" style="display:none">Arigato Gozaimasu</div>
                                 </div>
                                 <div style=" padding-top:20px; " id="lista">
                                 </div>
