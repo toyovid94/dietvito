@@ -13,6 +13,8 @@ function mostrar2() {
     document.getElementById("nada").style.display = "none";
     document.getElementById("actividades").style.display = "none";
     document.getElementById("evolPeso").style.display = "none";
+    document.getElementById("act").style.display = "none";
+    document.getElementById("alimentos").style.display = "none";
     document.getElementById(valor).style.display = "block";
 }
 
