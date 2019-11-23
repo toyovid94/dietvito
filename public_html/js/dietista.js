@@ -1,3 +1,13 @@
+var db;
+
+var request = window.indexedDB.open("dietista");
+request.onerror = function (event) {
+  console.log('The database is opened failed');
+};
+request.onsuccess = function (event) {
+  db = request.result;
+  console.log('The database is opened successfully');
+};
 function mostrar() {
     var x = document.getElementById("selectorAccion");
     var valor = x.options[x.selectedIndex].value;
