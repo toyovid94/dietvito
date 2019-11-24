@@ -139,10 +139,3 @@ function getLoggedImage(){
     return this.loggedImage;
 }
 
-function mostrarTablaActividades(){
-    var active = dataBase.result;
-    var data = active.transaction(["actividades"], "readonly");
-    var object = data.objectStore("actividades");
-    var request = object.getAll();
-    return request;
-}

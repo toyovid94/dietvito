@@ -1,3 +1,4 @@
+var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 window.addEventListener("load",iniciar);
 function iniciar(){
     

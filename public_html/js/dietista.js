@@ -1,3 +1,4 @@
+var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 window.addEventListener("load",iniciar);
 function iniciar(){
     
@@ -50,6 +51,8 @@ function saludar() {
 }
 
 function mostrarTablaAct(){
-    var tabla = document.getElementById("activities");
-    var todos = mostrarTablaActividades();
+    var active = dataBase.result;
+    var data = active.transaction(["actividades"], "readonly");
+    var object = data.objectStore("actividades");
+    var request = object.getAll();
 }

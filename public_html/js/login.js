@@ -1,4 +1,5 @@
- window.addEventListener("load",iniciar);
+var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+window.addEventListener("load",iniciar);
  function iniciar(){
     var btnLog = document.getElementById("cnc");
     btnLog.addEventListener("click",function(){
