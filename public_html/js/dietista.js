@@ -1,34 +1,50 @@
-function mostrar() {
-    var x = document.getElementById("selectorAccion");
-    var valor = x.options[x.selectedIndex].value;
-    document.getElementById("nada").style.display = "none";
-    document.getElementById("regUser").style.display = "none";
-    document.getElementById("regPeso").style.display = "none";
-    document.getElementById("consulta").style.display = "none";
-    document.getElementById(valor).style.display = "block";
-}
-function mostrar2() {
-    var x = document.getElementById("selectorConsulta");
-    var valor = x.options[x.selectedIndex].value;
-    document.getElementById("nada").style.display = "none";
-    document.getElementById("actividades").style.display = "none";
-    document.getElementById("evolPeso").style.display = "none";
-    document.getElementById("act").style.display = "none";
-    document.getElementById("alimentos").style.display = "none";
-    document.getElementById(valor).style.display = "block";
+window.addEventListener("load",iniciar);
+function iniciar(){
+    
+    var SelectorAcc = document.getElementById("selectorAccion");
+    SelectorAcc.addEventListener("change",function(){
+        var x = this.value;
+        document.getElementById("nada").style.display = "none";
+        document.getElementById("regUser").style.display = "none";
+        document.getElementById("regPeso").style.display = "none";
+        document.getElementById("consulta").style.display = "none";
+        document.getElementById(x).style.display = "block";
+    });
+    
+    var SelectorCons = document.getElementById("selectorConsulta");
+    SelectorCons.addEventListener("change",function(){
+        var x = this.value;
+        document.getElementById("nada").style.display = "none";
+        document.getElementById("actividades").style.display = "none";
+        document.getElementById("evolPeso").style.display = "none";
+        document.getElementById("act").style.display = "none";
+        document.getElementById("alimentos").style.display = "none";
+        document.getElementById(x).style.display = "block";
+    });
+    
+    var atr = document.getElementById("atr");
+    atr.addEventListener("click",function(){
+        window.history.back();
+    });
+    
+    var btnLog = document.getElementById("logout");
+    btnLog.addEventListener("click",function(){
+        location.href="Index.html";
+    });
+    
+    saludar();
 }
 
 function buttonRegCliente() {
     var boton = document.getElementById("regCliente");
-    boton.addEventListener("click", placeholder);
+    boton.addEventListener("click",addCliente());
     //sustituir placeholder por nombre de la funcion registroCliente
 }
 
-function buttonlimpiarReg() {
-    var boton = document.getElementById("limpiarReg");
-    boton.addEventListener("click", placeholder);
-    //sustituir placeholder por nombre de la funcion limpiar
+function placeholder() {
 }
 
-function placeholder() {
+function saludar() {
+    var saludos = document.getElementById("saludo");
+    saludos.innerHTML += "Hola, " + getLoggedName();
 }

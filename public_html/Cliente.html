@@ -11,10 +11,11 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
         <script src="js/Cliente.js"></script>
+        <script src="js/indexdDB.js"></script>
     </head>
-    <body style="padding-top:70px; background-image: url(img/bamboo.jpg);">
-        <header style=" top:0; margin:auto;position:fixed; width:100%;">
-            <nav style=" float:none;  display:inline-block; width:100%; text-align:center; height:70px; margin-bottom:0; border:0;float:left; margin:0;font-size:12px;color:#393b0a;background-color:olivedrab;border-radius:0;">
+    <body class="cuerpo">
+        <header class="cabecera">
+            <nav class="barra">
                 <div class="container" >
                     <ul class="nav" style= "float:left;  margin:0; width:100%; text-align:center; float:none;  display:inline-block;vertical-align: text-top;">
                         <li style=" position:absolute; left:0">
@@ -23,23 +24,26 @@ and open the template in the editor.
                             </a>
                         
                         <li style="float:right!important; margin-left:5px; margin-right:-5px; position:fixed; right:0;vertical-align: text-top;">
-                            <a href="Login.html" data-toggle="collapse" style="height:70px;background-color:darkolivegreen;color:white;">
-                                <span style=" font-size: 24px; padding: 0;">Login</span>
-                            </a>                  
+                            <button id="logout" class="boton botonLog">
+                                Logout
+                            </button>              
                         </li>
                     </ul>
                 </div>
             </nav>
         </header>
-        <div style="width:60%;height:100%;margin:auto;margin-bottom:0px;">
+        <button id="atr" class="boton botonAtr">Atras</button>
+        <div class="margen">
             <div style="padding:120px;">
-                <div style="width:100%;margin:auto;border:solid 2px lightgreen; background-color:whitesmoke;">
+                <div class="recuadro">
+                    <section class="saludo" id="saludando">
+                    </section>
                     <div style="margin-top:10px;margin-bottom:10px;padding:10px;margin:auto;width:100%;color:black;text-align:center;">
                         <div style="font-size:12px;text-align:center;">
-                            <div style="margin:auto; width:80%; padding-bottom:40px;padding-top:20px;">
+                            <div style="margin:auto; width:80%; padding-bottom:40px;padding-top:20px;" class="camposForm">
                                 Seleccionar consulta:
                                 <br>
-                                <select id="seleccionConsulta" onchange="mostrar()">
+                                <select id="seleccionConsulta">
                                     <option style="font-size:14px;" value="nada">Seleccionar consulta</option>
                                     <option style="font-size:14px;" value="peso">Consultar evolución peso</option>
                                     <option style="font-size:14px;" value="regAct">Registrar actividad realizada</option>
@@ -50,34 +54,41 @@ and open the template in the editor.
                                     <option style="font-size:14px;" value="alimConsum">Ver alimentos consumidos</option>
                                 </select>
                                 <div id="nada" style="display:none;">
-                                Nothing to see here... ( ͡° ͜ʖ ͡°)
+                                No hay nada que ver aquí, largo =.=
                                 <br>
                                 </div>
                                 <div id="peso" style="display:none;">
-                                Aqui va la evolución de pesos
-                                <br>
+                                    <form id="evolPeso" class="camposForm">    
+                                        Desde: <input type="date" id="fechaInicioPeso" required><br>
+                                        Hasta: <input type="date" id="fechaFinPeso" required><br><br>
+                                        <button type="submit" id="consPeso">Consultar Peso</button><br><br>
+                                        Aqui va la evolucion del peso.
+                                    </form>
+                                    <br>
                                 </div>
-                                <div id="regAct" style="display:none;">
+                                <div id="regAct" style="display:none;" class="camposForm">
                                 Seleccionar actividad de la lista:
                                 <br>
                                 </div>
-                                <div id="vistaTablaAct" style="display:none;">
-                                IndexedDB tabla actividades
+                                <div id="vistaTablaAct" style="display:none;" class="camposForm">
+                                    <section>
+                                        
+                                    </section>
                                 <br>
                                 </div>
-                                <div id="vistaActReal" style="display:none;">
+                                <div id="vistaActReal" style="display:none;" class="camposForm">
                                 IndexedDB Actividades Realizadas 
                                 <br>
                                 </div>
-                                <div id="tablaAlim" style="display:none;">
+                                <div id="tablaAlim" style="display:none;" class="camposForm">
                                 Placeholder tabla alimentos
                                 <br>
                                 </div>
-                                <div id="regAlim" style="display:none;">
+                                <div id="regAlim" style="display:none;" class="camposForm">
                                 Placeholder registrar alimentos
                                 <br>
                                 </div>
-                                <div id="alimConsum" style="display:none;">
+                                <div id="alimConsum" style="display:none;" class="camposForm">
                                 Placeholder alimentos consumidos
                                 <br>
                                 </div>

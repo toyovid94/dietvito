@@ -11,107 +11,115 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
         <script src="js/dietista.js"></script>
+        <script src="js/indexedDB.js"></script>
     </head>
-    <body style="padding-top:70px; background-image: url(img/bamboo.jpg);">
-        <header style=" top:0; margin:auto;position:fixed; width:100%;">
-            <nav style=" float:none;  display:inline-block; width:100%; text-align:center; height:70px; margin-bottom:0; border:0;float:left; margin:0;font-size:12px;color:#393b0a;background-color:olivedrab;border-radius:0;">
+    <body class="cuerpo">
+        <header class="cabecera">
+            <nav class="barra">
                 <div class="container" >
                     <ul class="nav" style= "float:left;  margin:0; width:100%; text-align:center; float:none;  display:inline-block;vertical-align: text-top;">
                         <li style=" position:absolute; left:0">
                             <a style="padding:0;" href="index.html">
-                                <h1 style=" font-size: 65px; color: black; "> <b>DietVito </b><img src="img/logo.png" alt="DietVito" style="width: 65px; height: 65px;"></h1>  
+                                <h1 style=" font-size: 65px; color: white; "> <b>DietVito </b><img src="img/logo.png" alt="DietVito" style="width: 65px; height: 65px;"></h1>  
                             </a>
-                        
                         <li style="float:right!important; margin-left:5px; margin-right:-5px; position:fixed; right:0;vertical-align: text-top;">
+                            <button id="logout" class="boton botonLog">
+                                Logout
+                            </button>
+                            <!--
                             <a href="Login.html" data-toggle="collapse" style="height:70px;background-color:darkolivegreen;color:white;">
                                 <span style=" font-size: 24px; padding: 0;">Login</span>
-                            </a>                  
+                            </a>   
+                            -->
                         </li>
                     </ul>
                 </div>
             </nav>
         </header>
-        <div style="width:60%;height:100%;margin:auto;margin-bottom:0px;">
+        <button id="atr" class="boton botonAtr">Atras</button>
+        <div class="margen">
             <div style="padding:120px;">
-                <div style="width:100%;margin:auto;border:solid 2px lightgreen; background-color:whitesmoke;">
+                <div class="recuadro">
                     <div style="color:black;">
-                        <p style="text-align:right;font-size:18px;font-style:italic;font-weight:bold;padding:20px;">
-                            Hola Dietista
-                        </p>
+                        <section class="saludo" id="saludo">
+                        </section>
                         <div style="font-size:12px;text-align:center;">
                             <div style="margin:auto; width:80%; padding-bottom:40px;padding-top:20px;">
-                                Seleccionar acción: 
-                                <select id="selectorAccion" onchange="mostrar()">
-                                    <option style="font-size:14px;" value="nada">Seleccionar acción</option>
-                                    <option style="font-size:14px;" value="regUser">Registrar Usuario</option>
-                                    <option style="font-size:14px;" value="regPeso">Registrar Peso</option>
-                                    <option style="font-size:14px;" value="consulta">Consultar...</option>
+                                <p class="camposForm">Seleccionar acción:</p> 
+                                <select id="selectorAccion">
+                                    <option value="nada">Seleccionar acción</option>
+                                    <option value="regUser">Registrar Usuario</option>
+                                    <option value="regPeso">Registrar Peso</option>
+                                    <option value="consulta">Consultar...</option>
                                 </select>
                                 <div id="nada" style="display:none;">
                                     Selecciona una acción.
                                 </div>
                                 <div id="regPeso" style="display:none;">
-                                    Introducir email del cliente:
-                                    <input type="email" id="clienteMail">
-                                    <br>
-                                    Introducir peso del cliente:
-                                    <input type="number" id="peso"><br>
-                                    Introducir fecha de la medición:
-                                    <input type="date" id="fechaPeso"><br><br>
-                                    <button type="button" onclick="registrarPeso()" >Registrar peso</button>
+                                    <form id ="datosPeso" class="camposForm">
+                                        Introducir email del cliente:
+                                        <input type="email" id="clienteMail" required>
+                                        <br>
+                                        Introducir peso del cliente (Kg, hasta 1 decimal):
+                                        <input type="number" id="peso" step="0.1" min="0" required><br>
+                                        Introducir fecha de la medición:
+                                        <input type="date" id="fechaPeso" required><br><br>
+                                        <button type="submit" onclick="registrarPeso()" >Registrar peso</button>
+                                    </form>
                                 </div>
                                 <div id="regUser" style="display:none;">
-                                    Introducir nombre del cliente:
-                                    <input type="text" id="nombreCliente">
-                                    <br>
-                                    Introducir email del cliente:
-                                    <input type="email" id="email">
-                                    <br>
-                                    Introducir contraseña del cliente:
-                                    <input type="password" id="pwd">
-                                    <br>
-                                    Imagen:
-                                    <input type="file" accept="image/*" id="imagenCliente"><br><br>
-                                    <!-- Cambiar onclick -->
-                                    <button type="button" id="regCliente" >Registrar cliente</button>
-                                    <button type="button" id="limpiarReg">Limpiar</button>
+                                    <form id="datosReg" class="camposForm">
+                                        Introducir nombre del cliente:
+                                        <input type="text" id="nombreCliente" pattern="([A-Z][a-z]+)( [A-Z][a-z]+){0,10}" required>
+                                        <br>
+                                        Introducir email del cliente:
+                                        <input type="email" id="email" required>
+                                        <br>
+                                        Introducir contraseña del cliente<br>
+                                        (caracteres alfanumericos, guion, punto y barra baja, 4-12 digitos):
+                                        <input type="password" id="pwd" pattern="[a-zA-Z0-9_.-]{4,12}" required>
+                                        <br>
+                                        Imagen:
+                                        <input type="file" accept="image/*" id="imagenCliente" required><br><br>
+                                        <button type="button" id="regCliente" >Registrar cliente</button>
+                                        <button type="reset" id="limpiarReg">Limpiar</button>
+                                    </form>
                                 </div>
                                 <div id="consulta" style="display:none;">
-                                    Consultar:
-                                    <select id="selectorConsulta" onchange="mostrar2()">
-                                        <option style="font-size:14px;" value="nada2">Seleccionar consulta</option>
-                                        <option style="font-size:14px;" value="actividades">Actividades realizadas</option>
-                                        <option style="font-size:14px;" value="evolPeso">Evolucion peso</option>
-                                        <option style="font-size:14px;" value="act">Consultar actividades</option>
-                                        <option style="font-size:14px;" value="alimentos">Consultar alimentos</option>
+                                    <p class="camposForm">Consultar:</p>
+                                    <select id="selectorConsulta">
+                                        <option value="nada2">Seleccionar consulta</option>
+                                        <option value="actividades">Actividades realizadas</option>
+                                        <option value="evolPeso">Evolucion peso</option>
+                                        <option value="act">Consultar actividades</option>
+                                        <option value="alimentos">Consultar alimentos</option>
                                     </select><br>
-                                    <div id="nada2" style="display:none;">
+                                    <div id="nada2" style="display:none;" class="camposForm">
                                         Seleccionar consulta.
                                     </div>
                                     <div id ="actividades" style="display:none;">
-                                        Introducir email del cliente: <input type="email" id="mailClienteConsulta"><br>
-                                        Desde: <input type="date" id="fechaInicioAct"><br>
-                                        Hasta: <input type="date" id="fechaFinAct"><br><br>
-                                        <button type="submit" id="consAct">Consultar Actividades</button><br><br>
+                                        <form id="actReal" class="camposForm">
+                                            Introducir email del cliente: <input type="email" id="clienteConsulta" required><br>
+                                            Desde: <input type="date" id="fechaInicioAct" required><br>
+                                            Hasta: <input type="date" id="fechaFinAct" required><br><br>
+                                            <button type="submit" id="consAct">Consultar Actividades</button><br><br>
+                                        </form>
                                         Aqui van las actividades
                                     </div>
                                     <div id ="evolPeso" style="display:none;">
-                                        Introducir email del cliente: <input type="email" id="mailClienteConsulta"><br>
-                                        Desde: <input type="date" id="fechaInicioPeso"><br>
-                                        Hasta: <input type="date" id="fechaFinPeso"><br><br>
-                                        <button type="submit" id="consPeso">Consultar Peso</button><br><br>
-                                        Aqui va la evolucion del peso.
+                                        <form id="pesoConsul" class="camposForm">
+                                            Introducir email del cliente: <input type="email" id="mailClienteConsulta" required><br>
+                                            Desde: <input type="date" id="fechaInicioPeso" required><br>
+                                            Hasta: <input type="date" id="fechaFinPeso" required><br><br>
+                                            <button type="submit" id="consPeso">Consultar Peso</button><br><br>
+                                            Aqui va la evolucion del peso.
+                                        </form>
                                     </div>
                                     <div id ="act" style="display:none">Fus-ro-dah</div>
                                     <div id ="alimentos" style="display:none">Arigato Gozaimasu</div>
                                 </div>
                                 <div style=" padding-top:20px; " id="lista">
                                 </div>
-                            </div>
-                        </div>
-                        <div style="margin:auto; width:60%;">
-                            <div style="margin-left:auto;margin-right:0px;padding:40px;width:100%;text-align:right;">                                    
-                                <input type="button" value="Logout" id="logout" />
                             </div>
                         </div>
                     </div>

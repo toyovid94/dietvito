@@ -10,10 +10,12 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
+        <script src="js/login.js"></script>
+        <script src="js/indexedDB.js"></script>
     </head>
-    <body style="padding-top:70px">
-        <header style=" top:0; margin:auto;position:fixed; width:100%;">
-            <nav style=" float:none;  display:inline-block; width:100%; text-align:center; height:70px; margin-bottom:0; border:0;float:left; margin:0;font-size:12px;color:#393b0a;background-color:olivedrab;border-radius:0; der:none">
+    <body class="cuerpo">
+        <header class="cabecera">
+            <nav class="barra">
                 <div class="container" >
                     <ul class="nav" style= "float:left;  margin:0; width:100%; text-align:center; float:none;  display:inline-block;vertical-align: text-top;">
                         <li style=" position:absolute; left:0">
@@ -22,23 +24,27 @@ and open the template in the editor.
                             </a>
                         
                         <li style="float:right!important; margin-left:5px; margin-right:-5px; position:fixed; right:0;vertical-align: text-top;">
-                            <a href="Login.html" data-toggle="collapse" style="height:70px;background-color:darkolivegreen;color:white;">
-                                <span style=" font-size: 24px; padding: 0;">Login</span>
-                            </a>                  
+                            <button id="cnc" class="boton botonLog">
+                                Cancelar
+                            </button>                 
                         </li>
                     </ul>
                 </div>
             </nav>
         </header>
-        <center style="padding-top: 70px;">
-        <form>
-            <p>Email:<input type="email" name="email" id="email" placeholder="Escriba su email" />
-            <p>Contraseña:<input type="password" name="contraseña" id="contraseña" placeholder="Escriba su contraseña"/>
-            <p>
-                <input type="button" value="Conectar"/>
-                <input type="button" value="Reset" id="reset" />
-            </p> 
-        </form>
-    </center>
+        <button id="atr" class="boton botonAtr">Atras</button>
+        <div class="margen">
+            <div class="recuadro" style="margin:auto;padding:20px;text-align:center;">
+                <form id="login" class="camposForm">
+                    Email:<input type="email" name="email" id="email" placeholder="Escriba su email" />
+                    <br>
+                    Contraseña:<input type="password" name="contraseña" id="contraseña" placeholder="Escriba su contraseña"/>
+                    <br>
+                    <br>
+                    <input type="button" id="loguear" value="Conectar"/>
+                    <input type="reset" value="Reset" id="reset" />
+                </form>
+            </div>
+        </div>
     </body>
 </html>
