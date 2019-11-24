@@ -48,3 +48,8 @@ function saludar() {
     var saludos = document.getElementById("saludo");
     saludos.innerHTML += "Hola, " + getLoggedName();
 }
+
+function mostrarTablaAct(){
+    var tabla = document.getElementById("activities");
+    var todos = mostrarTablaActividades();
+}
